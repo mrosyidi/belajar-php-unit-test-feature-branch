@@ -12,4 +12,9 @@
       $counter->increment();
       echo $counter->getCounter() . PHP_EOL;
     }
+
+    public function testOther()
+    {
+      echo "Other" . PHP_EOL;
+    }
   }
