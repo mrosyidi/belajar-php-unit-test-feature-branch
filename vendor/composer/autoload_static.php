@@ -23,6 +23,7 @@ class ComposerStaticInit4e17a6f9462d7496c142ddd48e9f7a4a
         'P' => 
         array (
             'Prophecy\\' => 9,
+            'ProgrammerZamanNow\\Test\\' => 24,
             'PhpParser\\' => 10,
             'PHPStan\\PhpDocParser\\' => 21,
         ),
@@ -48,6 +49,11 @@ class ComposerStaticInit4e17a6f9462d7496c142ddd48e9f7a4a
         'Prophecy\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
+        ),
+        'ProgrammerZamanNow\\Test\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+            1 => __DIR__ . '/../..' . '/tests',
         ),
         'PhpParser\\' => 
         array (
