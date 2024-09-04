@@ -3,6 +3,7 @@
   namespace ProgrammerZamanNow\Test;
 
   use PHPUnit\Framework\TestCase;
+  use PHPUnit\Framework\Assert;
 
   class CounterTest extends TestCase
   {
@@ -10,11 +11,6 @@
     {
       $counter = new Counter();
       $counter->increment();
-      echo $counter->getCounter() . PHP_EOL;
-    }
-
-    public function testOther()
-    {
-      echo "Other" . PHP_EOL;
+      Assert::assertEquals(1, $counter->getCounter());
     }
   }
