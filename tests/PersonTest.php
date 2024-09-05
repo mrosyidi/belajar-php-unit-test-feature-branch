@@ -18,4 +18,11 @@
       $this->expectException(\Exception::class);
       $person->sayHello(null);
     }
+
+    public function testGoodByeSuccess()
+    {
+      $person = new Person("Eko");
+      $this->expectOutputString("Good bye Budi" . PHP_EOL);
+      $person->sayGoodBye("Budi");
+    }
   }
