@@ -7,15 +7,22 @@
 
   class CounterTest extends TestCase
   {
+    private Counter $counter;
+
+    protected function setUp(): void
+    {
+      $this->counter = new Counter();
+      echo "Membuat Counter" . PHP_EOL;
+    }
+
     public function testCounter()
     {
-      $counter = new Counter();
-      $counter->increment();
-      Assert::assertEquals(1, $counter->getCounter());
-      $counter->increment();
-      $this->assertEquals(2, $counter->getCounter());
-      $counter->increment();
-      self::assertEquals(3, $counter->getCounter());
+      $this->counter->increment();
+      Assert::assertEquals(1, $this->counter->getCounter());
+      $this->counter->increment();
+      $this->assertEquals(2, $this->counter->getCounter());
+      $this->counter->increment();
+      self::assertEquals(3, $this->counter->getCounter());
     }
 
     /**
@@ -23,17 +30,15 @@
     */
     public function increment()
     {
-      $counter = new Counter();
-      $counter->increment();
-      $this->assertEquals(1, $counter->getCounter());
+      $this->counter->increment();
+      $this->assertEquals(1, $this->counter->getCounter());
     }
 
     public function testFirst(): Counter
     {
-      $counter = new Counter();
-      $counter->increment();
-      $this->assertEquals(1, $counter->getCounter());
-      return $counter;
+      $this->counter->increment();
+      $this->assertEquals(1, $this->counter->getCounter());
+      return $this->counter;
     }
 
     /**
@@ -43,5 +48,18 @@
     {
       $counter->increment();
       $this->assertEquals(2, $counter->getCounter());
+    }
+
+    protected function tearDown(): void
+    {
+      echo "Tear Down" . PHP_EOL;
+    }
+
+    /**
+    * @after
+    */
+    protected function after(): void
+    {
+      echo "After" . PHP_EOL;
     }
   }
