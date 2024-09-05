@@ -49,4 +49,17 @@
       $counter->increment();
       $this->assertEquals(2, $counter->getCounter());
     }
+
+    protected function tearDown(): void
+    {
+      echo "Tear Down" . PHP_EOL;
+    }
+
+    /**
+    * @after
+    */
+    protected function after(): void
+    {
+      echo "After" . PHP_EOL;
+    }
   }
