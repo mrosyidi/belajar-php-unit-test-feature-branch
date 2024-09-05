@@ -6,23 +6,27 @@
 
   class PersonTest extends TestCase
   {
+    private Person $person;
+
+    protected function setUp(): void
+    {
+      $this->person = new Person("Eko");
+    }
+
     public function testSuccess()
     {
-      $person = new Person("Eko");
-      self::assertEquals("Hello Budi, my name is Eko", $person->sayHello("Budi"));
+      self::assertEquals("Hello Budi, my name is Eko", $this->person->sayHello("Budi"));
     }
 
     public function testException()
     {
-      $person = new Person("Eko");
       $this->expectException(\Exception::class);
-      $person->sayHello(null);
+      $this->person->sayHello(null);
     }
 
     public function testGoodByeSuccess()
     {
-      $person = new Person("Eko");
       $this->expectOutputString("Good bye Budi" . PHP_EOL);
-      $person->sayGoodBye("Budi");
+      $this->person->sayGoodBye("Budi");
     }
   }
