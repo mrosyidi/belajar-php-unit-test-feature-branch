@@ -8,7 +8,10 @@
   {
     private Person $person;
 
-    protected function setUp(): void
+    /**
+    * @before
+    */
+    public function createPerson(): void
     {
       $this->person = new Person("Eko");
     }
