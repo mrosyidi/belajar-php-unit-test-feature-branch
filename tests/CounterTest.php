@@ -18,7 +18,7 @@
     public function testIncrement()
     {
       self::assertEquals(0, $this->counter->getCounter());
-      // TODO not complate
+      self::markTestIncomplete("TODO do increment");
     }
 
     public function testCounter()
