@@ -15,6 +15,12 @@
       echo "Membuat Counter" . PHP_EOL;
     }
 
+    public function testIncrement()
+    {
+      self::assertEquals(0, $this->counter->getCounter());
+      // TODO not complate
+    }
+
     public function testCounter()
     {
       $this->counter->increment();
