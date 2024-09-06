@@ -19,6 +19,7 @@
     {
       self::assertEquals(0, $this->counter->getCounter());
       self::markTestIncomplete("TODO do increment");
+      echo "TEST TEST" . PHP_EOL;
     }
 
     public function testCounter()
