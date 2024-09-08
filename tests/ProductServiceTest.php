@@ -81,4 +81,11 @@
       $this->service->delete("1");
       self::assertTrue(true, "Success delete");
     }
+
+    public function testDeleteException()
+    {
+      $this->expectException(\Exception::class);
+      $this->repository->method("findById")->willReturn(null);
+      $this->service->delete("1");
+    }
   }
