@@ -15,6 +15,13 @@
       echo "Membuat Counter" . PHP_EOL;
     }
 
+    public function testIncrement()
+    {
+      self::assertEquals(0, $this->counter->getCounter());
+      self::markTestIncomplete("TODO do increment");
+      echo "TEST TEST" . PHP_EOL;
+    }
+
     public function testCounter()
     {
       $this->counter->increment();
@@ -61,5 +68,22 @@
     protected function after(): void
     {
       echo "After" . PHP_EOL;
+    }
+
+    /**
+    * @requires OSFAIMILY Windows
+    */
+    public function testOnlyWindows()
+    {
+      self::assertTrue(true, "Only in Windows");
+    }
+
+    /**
+    * @requires PHP >= 8
+    * @requires OSFAIMILY Darwin
+    */
+    public function testOnlyForMacAndPHP()
+    {
+      self::assertTrue(true, "Only for Mac and PHP 8");
     }
   }
