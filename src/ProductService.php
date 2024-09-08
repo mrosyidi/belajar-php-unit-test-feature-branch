@@ -17,4 +17,14 @@
       }
       return $this->repository->save($product);
     }
+
+    public function delete(string $id): void
+    {
+      $product = $this->repository->findById($id);
+      if($product == null)
+      {
+        throw new \Exception('Product is not found');
+      }
+      $this->repository->delete($product);
+    }
   }
