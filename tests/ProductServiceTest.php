@@ -49,4 +49,16 @@
       self::assertSame("1", $this->repository->findById("1")->getId());
       self::assertSame("2", $this->repository->findById("2")->getId());
     }
+
+    public function testRegisterSuccess()
+    {
+      $this->repository->method("findById")->willReturn(null);
+      $this->repository->method("save")->willReturnArgument(0);
+      $product = new Product();
+      $product->setId("1");
+      $product->setName("Contoh");
+      $result = $this->service->register($product);
+      self::assertEquals($product->getId(), $result->getId());
+      self::assertEquals($product->getName(), $result->getName());
+    }
   }
