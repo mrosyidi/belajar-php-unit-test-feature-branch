@@ -38,4 +38,15 @@
       self::assertSame($product1, $this->repository->findById("1"));
       self::assertSame($product2, $this->repository->findById("2"));
     }
+
+    public function testStubCallback()
+    {
+      $this->repository->method("findById")->willReturnCallBack(function (string $id){
+        $product = new Product();
+        $product->setId($id);
+        return $product;
+      });
+      self::assertSame("1", $this->repository->findById("1")->getId());
+      self::assertSame("2", $this->repository->findById("2")->getId());
+    }
   }
