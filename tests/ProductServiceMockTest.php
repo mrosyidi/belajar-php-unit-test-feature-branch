@@ -75,6 +75,7 @@
 
     public function testDeleteSuccess()
     {
+      $this->repository->expects($this->once())->method("delete");
       $product = new Product();
       $product->setId("1");
       $this->repository->method("findById")->willReturn($product);
@@ -84,6 +85,7 @@
 
     public function testDeleteException()
     {
+      $this->repository->expects($this->never())->method("delete");
       $this->expectException(\Exception::class);
       $this->repository->method("findById")->willReturn(null);
       $this->service->delete("1");
