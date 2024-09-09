@@ -75,10 +75,10 @@
 
     public function testDeleteSuccess()
     {
-      $this->repository->expects($this->once())->method("delete");
       $product = new Product();
       $product->setId("1");
-      $this->repository->method("findById")->willReturn($product);
+      $this->repository->expects($this->once())->method("delete")->with(self::equalTo($product));
+      $this->repository->method("findById")->willReturn($product)->with(self::equalTo("1"));
       $this->service->delete("1");
       self::assertTrue(true, "Success delete");
     }
@@ -87,7 +87,7 @@
     {
       $this->repository->expects($this->never())->method("delete");
       $this->expectException(\Exception::class);
-      $this->repository->method("findById")->willReturn(null);
+      $this->repository->method("findById")->willReturn(null)->with(self::equalTo("1"));
       $this->service->delete("1");
     }
 
